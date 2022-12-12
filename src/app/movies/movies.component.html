@@ -1,0 +1,28 @@
+<div class="grid-container">
+  <div fxLayout="row wrap" fxLayoutGap="20px grid">
+    <div
+      fxFlex="25%"
+      fxFlex.xs="100%"
+      fxFlex.sm="30%"
+      *ngFor="let m of movies; let i = index"
+    >
+      <mat-card>
+        <img
+          mat-card-image
+          [src]="'https://image.tmdb.org/t/p/w500' + m.data.poster_path"
+          alt=""
+        />
+        <mat-card-content>
+          <button
+            mat-icon-button
+            [color]="m.favoriteId ? 'warn' : ''"
+            [disabled]="m.favoriteb"
+            (click)="m.favoriteId ? removeFav(m.favoriteId, i) : addFav(m.data.id, i)"
+          >
+            <mat-icon>favorite</mat-icon>
+          </button>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

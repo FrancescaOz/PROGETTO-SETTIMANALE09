@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row">
+    <div class=" mt-5 col-4 mx-auto text-center">
+      <form #form="ngForm" (ngSubmit)="login(form)">
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title >Login</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <div fxLayout>
+              <div>
+                <mat-form-field class="full-width">
+                  <input matInput placeholder="Email" type="email" #email="ngModel" ngModel name="email" required />
+                  <mat-error *ngIf="email.invalid">
+                    **Il campo è obbligatorio
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+            <div fxLayout>
+              <div>
+                <mat-form-field class="full-width mt-3">
+                  <input matInput type="password" #password="ngModel" placeholder="Password" ngModel name="password"
+                    required />
+                  <mat-error *ngIf="password.invalid">
+                   **Il campo è obbligatorio
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-raised-button color="primary" type="submit" class="mb-4">Accedi</button>
+          </mat-card-actions>
+        </mat-card>
+      </form>
+      <div fxLayout class="mt-2">
+        oppure <a [routerLink]="['/register']" style="color: #fff;"> Registrati</a>
+      </div>
+    </div>
+  </div>
+</div>
